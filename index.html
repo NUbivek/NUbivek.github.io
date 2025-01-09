@@ -2,143 +2,167 @@
 <html>
 <head>
     <style>
-        /* Previous styles remain the same until experience container */
-        
-        /* Updated Experience Section Styles */
-        .experience-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;  /* Creates two equal columns */
-            gap: 30px;
+        /* Base styles remain the same */
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            margin: 0;
             padding: 20px;
+            background: #f8f9fa;
+            color: #2d3748;
         }
-
-        .experience-category {
-            background: #f7fafc;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .experience-category h2 {
-            color: #2b6cb0;
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .experience-box {
+        .slide {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .title-slide {
+            background: linear-gradient(135deg, #1a365d, #2a4365);
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+        }
+        h1, h2, h3, .subtitle {
+            margin: 0;
+        }
+        .title-slide h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #4a5568;
+            margin: 0 0 10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+       
+        /* New experience timeline styles */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            position: relative;
+            padding-top: 30px;
+        }
+        .experience-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .experience-box {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
             position: relative;
             border-left: 4px solid #4299e1;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.2s ease;
         }
-
         .experience-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
-        .experience-box:last-child {
-            margin-bottom: 0;
-        }
-
-        .experience-date {
-            position: absolute;
-            top: -10px;
-            right: 15px;
-            background: linear-gradient(135deg, #4299e1, #2b6cb0);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
         .experience-box h3 {
-            color: #2d3748;
-            font-size: 1.3em;
-            margin-bottom: 15px;
+            color: #2b6cb0;
+            font-size: 1.2em;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
         }
-
         .experience-box ul {
             margin: 0;
             padding-left: 20px;
-            list-style-type: disc;
         }
-
         .experience-box li {
             margin-bottom: 8px;
-            color: #4a5568;
-            line-height: 1.5;
+            font-size: 0.95em;
         }
-
+        .experience-date {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #4299e1;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
         .strategic-note {
             font-style: italic;
-            color: #718096;
+            color: #4a5568;
             font-size: 0.9em;
-            margin-top: 10px;
-            padding: 8px;
-            background: rgba(66, 153, 225, 0.1);
-            border-radius: 6px;
+            margin-bottom: 8px;
         }
-
-        /* Ensuring container has proper width */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Section styling */
-        .section {
-            padding: 60px 0;
-            background: white;
+ 
+        /* Rest of the styles remain the same */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             margin: 20px 0;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
-        .section-title {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            padding: 0 20px;
-            position: relative;
-            padding-bottom: 15px;
+        .card {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
         }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 20px;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, #1a365d, #4299e1);
-            border-radius: 2px;
+        .market-stat {
+            background: #ebf8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .experience-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .experience-category {
-                margin-bottom: 30px;
-            }
-            
-            .experience-category:last-child {
-                margin-bottom: 0;
-            }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+        .sub-stat {
+            font-size: 0.9em;
+            color: #4a5568;
+            margin-top: 5px;
+        }
+        .quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #4a5568;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        .blue-bold {
+            color: #2b6cb0;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+ 
+<div class="slide title-slide">
+    <h1>Bivek Adhikari</h1>
+    <div class="subtitle">Investment Professional</div>
+    <div style="font-size: 1.1em; margin-top: 40px;">
+        Technical Founder • AI/ML Expert • Tech Investor<br>
+        Berkeley Haas MBA • MS in Machine Learning, Northwestern University • BS Finance & CS
+    </div>
+</div>
+ 
     <div class="container">
         <section class="section">
             <h2 class="section-title">Track Record & Experience</h2>
@@ -209,5 +233,117 @@
             </div>
         </section>
     </div>
+ 
+<!-- Rest of the slides remain exactly the same -->
+<div class="slide">
+    <h2>Deal Flow & Network</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h3>Bay Area Ecosystem</h3>
+            <ul>
+                <li>VC Club, President at Haas</li>
+                <li>UC LAUNCH accelerator, SVP</li>
+                <li>Skydeck, AI Entrepreneurs of Berkeley</li>
+                <li>Stanford & Berkeley Clubs Network</li>
+                <li>Diverse Community Groups (Immigrant, Australian, South Asian Networks)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Multi-Hub Network</h3>
+            <ul>
+                <li>Northwestern: AI/ML research network</li>
+                <li>DC, MD, and VA: Tech startup community</li>
+                <li>Florida: UF/UCF entrepreneurship hubs</li>
+                <li>Other industry network: 800+ in Supply Chain, 300+ in Health Data, and 1,000+ in AI/Data Science</li>
+            </ul>
+        </div>
+    </div>
+</div>
+ 
+<div class="slide">
+    <h2>Investment Focus & Market Opportunities</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h3>Supply Chain Intelligence</h3>
+            <div class="market-stat">
+                <div class="stat-number">$21.93B</div>
+                <div>Market Size | 15.4% CAGR</div>
+            </div>
+            <ul>
+                <li>Inventory optimization</li>
+                <li>Supply & Demand planning</li>
+                <li>Procurement & sourcing</li>
+                <li>Finance and payment</li>
+                <li>Traceability & compliance</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Mixed TMS</h3>
+            <div class="market-stat">
+                <div class="stat-number">$252.7B</div>
+                <div>US Market Size | 15.22% CAGR</div>
+                <div class="sub-stat">
+                    Global Markets: 3PL: $1.1T | TMS: $4.4B | WMS: $2.7B
+                </div>
+            </div>
+            <ul>
+                <li>Convergence of TMS, WMS, and 3PL systems</li>
+                <li>Real-time optimization & multi-modal planning</li>
+                <li>AI/ML enhanced route optimization</li>
+                <li>IoT and blockchain integration</li>
+            </ul>
+        </div>
+    </div>
+   
+    <div class="grid-2" style="margin-top: 20px;">
+        <div class="card">
+            <h3>AI-First SaaS Opportunities</h3>
+            <ul>
+                <li>Construction Management: <span class="blue-bold">$4.5B</span> market by 2026</li>
+                <li>Auditing & Accounting: <span class="blue-bold">$4.8B</span> market by 2024</li>
+                <li>Key attributes: poor interoperability, integration nightmare, disparate data sources, unstructured datasets, diverse data types, excessive collection of paper based, on-premises, and underutilized database, multiple clicks and finagling, etc.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Health Data</h3>
+            <div class="market-stat">
+                <div class="stat-number">$5.7B</div>
+                <div>2025 Market Size</div>
+            </div>
+            <ul>
+                <li>FHIR-based solutions</li>
+                <li>Clinical decision support</li>
+                <li>Data integration platforms</li>
+            </ul>
+        </div>
+    </div>
+</div>
+ 
+<div class="slide">
+    <h2>Personal Mission & Vision</h2>
+    <div class="quote">
+        "Going where others won't and doing what others don't,<br>
+        Not because others aren't, but because others should and yet won't."
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <h3>Journey & Evolution</h3>
+            <ul>
+                <li>Nepal to US journey: Overcoming challenges & embracing opportunities</li>
+                <li>Technical expert to investor transition</li>
+                <li>Founder & operator experience</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Commitment to Excellence</h3>
+            <ul>
+                <li>Promoting underrepresented founders</li>
+                <li>Driving efficient and resilient global systems</li>
+                <li>Working with best-in-class talents</li>
+            </ul>
+        </div>
+    </div>
+</div>
+ 
 </body>
 </html>
