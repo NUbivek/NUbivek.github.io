@@ -51,7 +51,245 @@
             width: 100%;
             margin: 0 auto;
         }
+        
+        .pdf-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .pdf-navigation {
+            background: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 20px;
+        }
+        
+        .pdf-selector {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            padding-bottom: 4px;
+        }
+        
+        .pdf-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #edf2f7;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            color: #4a5568;
+            font-size: 0.9em;
+        }
+        
+        .pdf-tab:hover {
+            background: #e2e8f0;
+            transform: translateY(-1px);
+        }
+        
+        .pdf-tab.active {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .pdf-icon {
+            font-size: 1.2em;
+        }
+        
+        .pdf-title {
+            font-weight: 500;
+        }
+        
+        .pdf-viewer {
+            background: #f8f9fa;
+            padding: 20px;
+            min-height: 800px;
+        }
+        
+        .pdf-viewer iframe {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .pdf-frame {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: opacity 0.3s ease;
+            min-height: 700px;
+        }
+        
+        .pdf-frame.active {
+            display: block;
+        }
+        
+        .pdf-viewer {
+            background: #f8f9fa;
+            padding: 20px;
+            min-height: 700px;
+            border-radius: 8px;
+        }
 
+        /* Dark Mode Styles */
+        body.dark-theme {
+            background: #121212;
+            color: #e2e8f0;
+        }
+        
+        /* Container & Content */
+        body.dark-theme .tab-content,
+        body.dark-theme .card,
+        body.dark-theme .market-stat,
+        body.dark-theme .pdf-navigation {
+            background: #2d3748;
+        }
+        
+        /* Navigation */
+        body.dark-theme .tab-button,
+        body.dark-theme .pdf-tab {
+            background: #4a5568;
+            color: #e2e8f0;
+        }
+        
+        body.dark-theme .tab-button:hover,
+        body.dark-theme .pdf-tab:hover {
+            background: #718096;
+        }
+        
+        body.dark-theme .tab-button.active,
+        body.dark-theme .pdf-tab.active {
+            background: #4299e1;
+            color: #fff;
+        }
+        
+        /* Experience Box Headers */
+        body.dark-theme .experience-category h3 {
+            color: #90cdf4;
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        /* Experience Boxes */
+        body.dark-theme .experience-box {
+            background: #1a202c;
+            border-left-color: rgba(66, 153, 225, 0.6);
+        }
+        
+        body.dark-theme .experience-box:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Strategic Notes */
+        body.dark-theme .strategic-note {
+            background: rgba(66, 153, 225, 0.03);
+            color: #a0aec0;
+            border-left: 2px solid rgba(66, 153, 225, 0.3);
+            font-weight: 350;
+            box-shadow: none;
+            opacity: 0.75;
+        }
+        
+        body.dark-theme .strategic-note:before {
+            opacity: 0.02;
+            background: transparent;
+        }
+        
+        /* Typography */
+        body.dark-theme h1, 
+        body.dark-theme h2, 
+        body.dark-theme h3 {
+            color: #e2e8f0;
+            font-weight: 350;
+        }
+        
+        body.dark-theme p, 
+        body.dark-theme li {
+            color: #cbd5e0;
+            font-weight: 350;
+        }
+        
+        /* PDF Viewer */
+        body.dark-theme .pdf-container {
+            background: #1a202c;
+        }
+        
+        body.dark-theme .pdf-navigation {
+            border-bottom: 1px solid #4a5568;
+        }
+        
+        /* Statistics */
+        body.dark-theme .stat-number {
+            color: #63b3ed;
+        }
+        
+        /* Headers with Separator */
+        h2 {
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(66, 153, 225, 0.15);
+            margin-bottom: 20px;
+        }
+        
+        body.dark-theme h2 {
+            border-bottom: 1px solid rgba(66, 153, 225, 0.1);
+        }
+        
+        /* Toggle Button */
+        .theme-toggle {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toggle-button {
+            width: 48px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 2px;
+            position: relative;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-button::before {
+            content: '🌙';
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .toggle-button.dark::before {
+            content: '☀️';
+            transform: translate(24px, -50%);
+        }
+        
+        .title-slide {
+            position: relative;
+        }
+
+                   
+        
         /* Enhanced Title Slide */
         .title-slide {
             background: linear-gradient(-45deg, #1a365d, #2a4365, #2c5282, #2b6cb0);
@@ -172,7 +410,18 @@
         .experience-category:nth-child(2) .experience-box {
             border-left: none;
         }
+
+              .experience-box h3 {
+            margin-top: 2px;
+            margin-bottom: 8px;
+            padding-top: 2px;
+            padding-bottom: 0;
+        }
         
+        .experience-box ul {
+            margin-top: 0;
+            padding-top: 2px;
+        }
 
         .experience-box.visible {
             opacity: 1;
@@ -194,6 +443,35 @@
             font-size: 0.8em;
             transition: all 0.3s ease;
         }
+        
+                .strategic-note {
+            position: relative;
+            font-size: 0.85em;
+            color: #4a5568;
+            padding: 4px 12px 4px 12px;  /* top right bottom left */
+            margin: 0 0 4px 0;  /* reduced top and bottom margin */
+            display: inline-block;
+            background: linear-gradient(120deg, #f7fafc 0%, #edf2f7 100%);
+            border-left: 3px solid #4299e1;
+            opacity: 0.85;
+            font-style: italic;
+            letter-spacing: 0.02em;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .strategic-note:before {
+            content: "";
+            position: absolute;
+            left: -3px;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #4299e1;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
 
         /* Enhanced Cards */
         .card {
@@ -323,17 +601,23 @@
             Technical Founder • AI/ML Expert • Tech Investor<br>
             Berkeley Haas MBA • MS in Machine Learning, Northwestern University • BS Finance & CS
         </div>
-    </div>
+         <div class="theme-toggle">
+            <button class="toggle-button" id="themeToggle" aria-label="Toggle dark mode"></button>
+        </div>
+        </div>
 
     <div class="tabs">
         <div class="tab-buttons">
-            <button class="tab-button active" onclick="openTab('track-record')">Track Record & Experience</button>
-            <button class="tab-button" onclick="openTab('deal-flow')">Deal Flow & Network</button>
-            <button class="tab-button" onclick="openTab('investment-focus')">Investment Focus</button>
-            <button class="tab-button" onclick="openTab('personal-mission')">Personal Mission</button>
+            <button class="tab-button active" onclick="openTab('background')">Background</button>
+            <button class="tab-button" onclick="openTab('deal-flow')">Deal Flow</button>
+            <button class="tab-button" onclick="openTab('focus')">Focus</button>
+            <button class="tab-button" onclick="openTab('thesis-deep-dive')">Thesis Deep-Dive</button>
+            <button class="tab-button" onclick="openTab('investment-memo')">Investment Memo</button>
+            <button class="tab-button" onclick="openTab('sample-deals')">Sample Deals</button>
+            <button class="tab-button" onclick="openTab('my-story')">My Story</button>
         </div>
 
-        <div id="track-record" class="tab-content active">
+        <div id="background" class="tab-content active">
             <h2>Track Record & Experience</h2>
             <div class="experience-container">
                 <div class="experience-category">
@@ -341,8 +625,9 @@
                     <div class="experience-box">
                         <span class="experience-date">2024-Present</span>
                         <h3>GroundForce Capital</h3>
+                        <div class="strategic-note">Growth Investments, Series B+</div>
                         <ul>
-                            <li>Developed Supply Chain thesis</li>
+                            <li>Developed & executed Supply Chain thesis</li>
                             <li>Screened 200+ companies</li>
                             <li>Modeled returns for $10-40M checks (2.5-4x MOIC, 25%+ IRR)</li>
                             <li>Triangulated DCF, comps, and precedents for valuation</li>
@@ -351,6 +636,7 @@
                     <div class="experience-box">
                         <span class="experience-date">2023-2024</span>
                         <h3>Autotech Ventures</h3>
+                        <div class="strategic-note">Early-stage Investments</div>
                         <ul>
                             <li>Incubated a startup-studio and built a home-grown startup</li>
                             <li>Sourced 35+ leads, leveraging AI & robotics expertise/network</li>
@@ -360,6 +646,7 @@
                     <div class="experience-box">
                         <span class="experience-date">2023-2024</span>
                         <h3>Berkeley Haas SIF</h3>
+                        <div class="strategic-note">Socially Responsible Investment (SRI) & ESG fund</div>
                         <ul>
                             <li>Led $4.3M ESG portfolio (13.87% return)</li>
                             <li>Implemented technical scalability metrics & impact framework</li>
@@ -372,7 +659,7 @@
                     <div class="experience-box technical-experience">
                         <span class="experience-date">2020-2023</span>
                         <h3>ServicePower</h3>
-                        <div class="strategic-note">Strategically chosen for a parallel/relevant startup quest</div>
+                        <div class="strategic-note">Strategically chosen for a parallel & relevant startup quest</div>
                         <ul>
                             <li>Delivered AI/ML solutions for Fortune 100 clients, $13M+ ARR</li>
                             <li>Built 2 and deployed 5 SaaS products</li>
@@ -382,6 +669,7 @@
                     <div class="experience-box technical-experience">
                         <span class="experience-date">2020-2022</span>
                         <h3>Monk Robotics</h3>
+                        <div class="strategic-note">Startup</div>
                         <ul>
                             <li>Launched 3 MVPs: autonomous mower, sanitizing robots & IoT tech</li>
                             <li>Rapidly adapted GTM & PMF amid COVID challenges</li>
@@ -390,7 +678,8 @@
                     </div>
                     <div class="experience-box technical-experience">
                         <span class="experience-date">2017-2020</span>
-                        <h3>Amida Technology</h3>
+                        <h3>Amida</h3>
+                        <div class="strategic-note">Startup</div>
                         <ul>
                             <li>Closed $100M+ in TCV</li>
                             <li>Owned 2 product lines, led 13+ federal proposals</li>
@@ -426,7 +715,7 @@
             </div>
         </div>
 
-        <div id="investment-focus" class="tab-content">
+        <div id="focus" class="tab-content">
             <h2>Investment Focus & Market Opportunities</h2>
             <div class="grid-2">
                 <div class="card">
@@ -491,7 +780,7 @@
         </div>
 
 
-        <div id="personal-mission" class="tab-content">
+        <div id="my-story" class="tab-content">
             <h2>Personal Mission & Vision</h2>
             <div class="quote">
                 Going where others won't and doing what others don't,<br>
@@ -499,9 +788,9 @@
             </div>
             <div class="grid-2">
                 <div class="card">
-                    <h3>Journey & Evolution</h3>
+                    <h3>Distance Traveled</h3>
                     <ul>
-                        <li>Nepal to US:Overcoming challenges & embracing opportunities</li>
+                        <li>Rural Nepal to US: Overcoming challenges/embracing opportunities</li>
                         <li>Technical specialist to investor transition</li>
                         <li>Individual contributor and manager - with & without authority</li>
                         <li>Founder & operator experience</li>
@@ -515,6 +804,55 @@
                          <li>Working with best-in-class talents</li>
                         <li>Adding a net positive value</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+                <!-- Add these new tab content divs right before the closing </div> of the tabs container -->
+        <div id="thesis-deep-dive" class="tab-content">
+            <h2>Thesis Deep-Dive</h2>
+            <div class="pdf-container">
+                <div class="pdf-navigation">
+                    <div class="pdf-selector">
+                        <button class="pdf-tab active" onclick="switchPDF('sci-tms')">
+                            <span class="pdf-icon">📦</span>
+                            <span class="pdf-title">Supply Chain Software Ecosystem</span>
+                        </button>
+                        <button class="pdf-tab" onclick="switchPDF('linkedin-article1')">
+                            <span class="pdf-icon">🚚</span>
+                            <span class="pdf-title">Integrated Logistics Software</span>
+                        </button>
+                        <button class="pdf-tab" onclick="switchPDF('linkedin-article2')">
+                            <span class="pdf-icon">📋</span>
+                            <span class="pdf-title">AI Agents for Supply & Demand Planning</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="pdf-viewer">
+                    <iframe id="sci-tms" class="pdf-frame active"
+                        src="https://docs.google.com/viewer?url=https://github.com/NUbivek/NUbivek.github.io/blob/main/SCI%20%26%20Mixed-TMS_AgenticSolutionThesis.pdf&embedded=true"
+                        frameborder="0" width="100%" height="700px" loading="lazy">
+                    </iframe>
+                    <iframe id="linkedin-article1" class="pdf-frame"
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7282123427535040512"
+                        frameborder="0" width="100%" height="700px" style="display: none;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                    <iframe id="linkedin-article2" class="pdf-frame"
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:share:7280613944342265857"
+                        frameborder="0" width="100%" height="700px" style="display: none;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="sample-deals" class="tab-content">
+            <h2>Sample Deals</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <!-- Add your content here -->
+                </div>
+                <div class="card">
+                    <!-- Add your content here -->
                 </div>
             </div>
         </div>
@@ -545,6 +883,56 @@
             event.currentTarget.classList.add("active");
         }
 
+        function switchPDF(pdfId) {
+            // Hide all PDFs
+            document.querySelectorAll('.pdf-frame').forEach(frame => {
+                frame.style.display = 'none';
+                frame.classList.remove('active');
+            });
+            
+            // Show selected PDF
+            const selectedPDF = document.getElementById(pdfId);
+            if (selectedPDF) {
+                selectedPDF.style.display = 'block';
+                selectedPDF.classList.add('active');
+            }
+            
+            // Update tab styling
+            document.querySelectorAll('.pdf-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+        
+      function initTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    
+    // Remove system preference check and set light mode as default
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-theme');
+        themeToggle.classList.add('dark');
+    } else {
+        // Explicitly set light mode
+        document.body.classList.remove('dark-theme');
+        themeToggle.classList.remove('dark');
+        localStorage.setItem('darkMode', 'false');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        themeToggle.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
+    });
+          
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing animation code...
+    
+    // Add dark theme initialization
+    initTheme();
+});
+
+       
         // Scroll Animation
         function checkScroll() {
             const elements = document.querySelectorAll('.experience-box, .card');
