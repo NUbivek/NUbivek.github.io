@@ -1,8 +1,27 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-   <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8ZVX8ZL6K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G8ZVX8ZL6K');
+</script>
+    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="vanilla-dashboard.js"></script>
 </head>
+
+
+
+
 <body>
     <div class="title-slide">
         <h1>Bivek Adhikari</h1>
@@ -239,7 +258,7 @@
                 </div>
                 <div class="pdf-viewer">
                     <iframe id="sci-tms" class="pdf-frame active"
-                src="https://docs.google.com/viewer?url=https://github.com/NUbivek/NUbivek.github.io/raw/main/SCI%20%26%20Mixed-TMS_AgenticSolutionThesis.pdf&embedded=true"
+                src="https://docs.google.com/viewer?url=https://github.com/NUbivek/NUbivek.github.io/raw/main/SCI%20%26%20Mixed-TMS_AgenticSolutionThesis.pdf&embedded=true&rm=minimal"
                 frameborder="0" width="100%" height="700px" loading="lazy">
                     </iframe>
                     <iframe id="linkedin-article1" class="pdf-frame"
@@ -261,287 +280,586 @@
                     <div class="pdf-selector">
                         <button class="pdf-tab active" onclick="switchMemo('orderful')">
                             <span class="pdf-icon">📊</span>
-                            <span class="pdf-title">Orderful</span>
+                            <span class="pdf-title">Detailed Analysis Example (Orderful)</span>
                         </button>
                         <button class="pdf-tab" onclick="switchMemo('memo2')">
                             <span class="pdf-icon">📝</span>
-                            <span class="pdf-title">Memo 2</span>
-                        </button>
-                        <button class="pdf-tab" onclick="switchMemo('memo3')">
-                            <span class="pdf-icon">📈</span>
-                            <span class="pdf-title">Memo 3</span>
+                            <span class="pdf-title">Screening Memo Example (Ethic)</span>
                         </button>
                     </div>
                 </div>
         
                 <!-- Orderful Content -->
-                <div id="orderful" class="memo-content active">
-                    <div class="subtab-navigation">
-                        <button class="subtab-button active" onclick="switchSubtab('dashboard')">Dashboard</button>
-                        <button class="subtab-button" onclick="switchSubtab('topic2')">Topic 2</button>
-                        <button class="subtab-button" onclick="switchSubtab('topic3')">Topic 3</button>
-                        <button class="subtab-button" onclick="switchSubtab('topic4')">Topic 4</button>
-                        <button class="subtab-button" onclick="switchSubtab('topic5')">Topic 5</button>
+                <div class="subtab-navigation">
+                    <button class="subtab-button active" onclick="switchSubtab('dashboard')">Orderful Dashboard</button>
+                     <button class="subtab-button" onclick="switchSubtab('topic2')">
+                            <span class="pdf-icon">🧩</span>
+                            <span class="pdf-title"> One Page Memo (Orderful) </span>
+                        </button>
+                        <button class="subtab-button" onclick="switchSubtab('topic3')">
+                            <span class="pdf-icon">🗂️</span>
+                            <span class="pdf-title"> Company Slide Deck (Orderful)</span>
+                        </button>
+                </div>
+
+                    
+                       <div id="dashboard" class="subtab-content active">
+                        <div id="investor-dashboard">
+                            <div class="dashboard-container">
+                                <!-- Top Section -->
+                                <div class="charts-section">
+                                    <!-- Financial Charts -->
+                                    <div class="section financial">
+                                        <div class="chart-slider">
+                                            <button class="nav-arrow left">←</button>
+                                            <div class="chart-container">
+                                                <!-- Financial Charts -->
+                                                <canvas id="revenueChart"></canvas>
+                                                <canvas id="unitEconomicsChart"></canvas>
+                                                <canvas id="efficiencyChart"></canvas>
+                                                <canvas id="revenueGrowthChart" 
+                                                    data-type="line"
+                                                    data-labels="FY24,FY25,FY26"
+                                                    data-revenue="7.69,20.25,44.81"
+                                                    data-arr="10.28,27.01,59.74">
+                                                </canvas>
+                                                <canvas id="burnMarginChart" 
+                                                    data-type="scatter"
+                                                    data-burn="1.96,-0.24,-0.24"
+                                                    data-margin="74.19,95.02,95.03">
+                                                </canvas>
+                                                <canvas id="revenueStreamsChart" 
+                                                    data-type="stacked-bar"
+                                                    data-base="23988"
+                                                    data-enterprise="54600"
+                                                    data-growth="44280"
+                                                    data-scale="26040">
+                                                </canvas>
+                                                <canvas id="costScalingChart" 
+                                                    data-type="stacked-area"
+                                                    data-engineering="5.18,7.62,9.03"
+                                                    data-sales="2.80,4.53,5.94"
+                                                    data-cs="2.08,3.21,3.86">
+                                                </canvas>
+                                                <canvas id="headcountEfficiencyChart" 
+                                                    data-type="bar"
+                                                    data-revenue="140795,245503,449184"
+                                                    data-headcount="73,110,133">
+                                                </canvas>
+                                            </div>
+                                            <button class="nav-arrow right">→</button>
+                                            <div class="slide-dots">
+                                                <span class="dot active"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                                <span class="dot"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                        
+                    
+                                <!-- Top Right Financial KPIs -->
+                               
+                                    <div class="section financial">
+                                        <div class="kpi-grid">
+                                            <div class="metric-card">
+                                                <h3>Revenue CAGR</h3>
+                                                <p class="value">141%</p>
+                                                <span class="trend">Rapid Growth Path</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Gross Margin</h3>
+                                                <p class="value">74.19%</p>
+                                                <span class="trend">Top Performance</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Rule of 40</h3>
+                                                <p class="value">176%</p>
+                                                <span class="trend">Best-in-class</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>ARR Growth</h3>
+                                                <p class="value">$10.28M</p>
+                                                <span class="trend">Scaling Momentum</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>LTV/CAC</h3>
+                                                <p class="value">10x</p>
+                                                <span class="trend">Smart Economics</span>
+                                            </div>
+                                             <div class="metric-card">
+                                                <h3>Burn Multiple</h3>
+                                                <p class="value">-0.24</p>
+                                                <span class="trend">Efficient</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>YoY Growth</h3>
+                                                <p class="value">121%</p>
+                                                <span class="trend">Consistent</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Net Revenue Retention</h3>
+                                                <p class="value">130%</p>
+                                                <span class="trend">Customer Loyalty</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- Middle Section -->
+                                <div class="metrics-section">
+                                    <!-- Operational KPIs -->
+                                    <div class="section operational">
+                                        <div class="kpi-grid">
+                                            <div class="metric-card">
+                                                <h3>Network Partners</h3>
+                                                <p class="value">5,000+</p>
+                                                <span class="trend">Ecosystem Growth</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Implementation Time</h3>
+                                                <p class="value">9 days</p>
+                                                <span class="trend">Rapid Deployment</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>System Uptime</h3>
+                                                <p class="value">99.99%</p>
+                                                <span class="trend">Reliable Platform</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Error Resolution</h3>
+                                                <p class="value">Real-time</p>
+                                                <span class="trend">Instant Support</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Success Rate</h3>
+                                                <p class="value">100%</p>
+                                                <span class="trend">Perfect Execution</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Partner Growth</h3>
+                                                <p class="value">156%</p>
+                                                <span class="trend">YoY</span>
+                                            </div>
+                                             <div class="metric-card">
+                                                <h3>Transaction Volume</h3>
+                                                <p class="value">265M</p>
+                                                <span class="trend">Annual</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Integration Speed</h3>
+                                                <p class="value">80%</p>
+                                                <span class="trend">Quick Connect</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                     <!-- Operational Charts -->
+                                            <div class="section operational">
+                                                <div class="chart-slider">
+                                                    <button class="nav-arrow left">←</button>
+                                                    <div class="chart-container">
+                                                        <!-- Existing Operational Charts -->
+                                                        <canvas id="implementationChart"></canvas>
+                                                        <canvas id="marketCoverageChart"></canvas>
+                                                        <canvas id="roiChart"></canvas>
+                                                        
+                                                        <!-- New Operational Charts -->
+                                                        <canvas id="deploymentTimelineChart" 
+                                                            data-type="horizontal-bar"
+                                                            data-orderful="9,5,1"
+                                                            data-industry="45,30,14">
+                                                        </canvas>
+                                                        <canvas id="supportMetricsChart" 
+                                                            data-type="radar"
+                                                            data-response="1"
+                                                            data-resolution="24"
+                                                            data-satisfaction="98"
+                                                            data-efficiency="95">
+                                                        </canvas>
+                                                        <canvas id="marketPenetrationChart" 
+                                                            data-type="doughnut"
+                                                            data-retail="3000"
+                                                            data-logistics="2000"
+                                                            data-manufacturing="1500"
+                                                            data-healthcare="1000">
+                                                        </canvas>
+                                                        <canvas id="partnerGrowthChart" 
+                                                            data-type="combo"
+                                                            data-partners="5000,6500,8000"
+                                                            data-growth="156">
+                                                        </canvas>
+                                                        <canvas id="teamCompositionChart" 
+                                                            data-type="doughnut"
+                                                            data-engineering="35"
+                                                            data-sales="21"
+                                                            data-cs="18"
+                                                            data-product="16"
+                                                            data-other="10">
+                                                        </canvas>
+                                                    </div>
+                                                    <button class="nav-arrow right">→</button>
+                                                    <div class="slide-dots">
+                                                        <span class="dot active"></span>
+                                                        <span class="dot"></span>
+                                                        <span class="dot"></span>
+                                                        <span class="dot"></span>
+                                                        <span class="dot"></span>
+                                                        <span class="dot"></span>
+                                                        <span class="dot"></span>
+                                                        <span class="dot"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                <!-- Bottom Section -->
+                                <div class="metrics-section">
+                                    <!-- Financial KPIs -->
+                                    <div class="section financial">
+                                        <div class="kpi-grid">
+                                            <div class="metric-card">
+                                                <h3>ARR per Customer</h3>
+                                                <p class="value">$33,043</p>
+                                                <span class="trend">Expanding</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>ARR per Employee</h3>
+                                                <p class="value">$449,184</p>
+                                                <span class="trend">79% CAGR</span>
+                                            </div>
+                                           
+                                            <div class="metric-card">
+                                                <h3>Customer Growth</h3>
+                                                <p class="value">156%</p>
+                                                <span class="trend">CAGR</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Revenue per Sales Rep</h3>
+                                                <p class="value">$1.6M</p>
+                                                <span class="trend">Increasing</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Operational KPIs -->
+                                    <div class="section operational">
+                                        <div class="kpi-grid">
+                                           
+                                            <div class="metric-card">
+                                                <h3>Success Rate</h3>
+                                                <p class="value">100%</p>
+                                                <span class="trend">Perfect</span>
+                                            </div>
+                                            
+                                            <div class="metric-card">
+                                                <h3>Integration Efficiency</h3>
+                                                <p class="value">90%</p>
+                                                <span class="trend">Reduction</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Cost Reduction</h3>
+                                                <p class="value">70%</p>
+                                                <span class="trend">vs Industry</span>
+                                            </div>
+                                            <div class="metric-card">
+                                                <h3>Time Savings</h3>
+                                                <p class="value">80%</p>
+                                                <span class="trend">vs Legacy</span>
+                                            </div>
+                                        </div>  <!-- closes //Operational KPI Grid -->
+                                    </div> <!-- closes //Operational KPIs -->
+                                </div> <!-- closes //Metric section for KPIs -->
+                             </div> <!-- closes dashboard-container -->
+                            </div> <!-- closes investor-dashboard -->
+                        </div> <!-- closes dashboard -->
+
+                    <div id="topic2" class="subtab-content"> 
+                        <iframe 
+                            src="https://docs.google.com/viewer?url=https://github.com/NUbivek/NUbivek.github.io/raw/main/Orderful_OnePager.pdf&embedded=true&rm=minimal"
+                            frameborder="0" 
+                            width="100%" 
+                            height="700px" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+
+                              <div id="topic3" class="subtab-content">
+                <div class="pdf-password-container">
+                    <div class="password-overlay">
+                        <h3>Enter Bivek Provided Password</h3>
+                        <input 
+                            type="password" 
+                            id="orderfulDeckPassword" 
+                            placeholder="Enter Password"
+                        >
+                        <button onclick="validatePDFAccess()">Access Document</button>
+                        <p id="passwordError" class="error-message"></p>
                     </div>
                     
-                    <div id="dashboard" class="subtab-content active">
-                        <div id="investor-dashboard"></div>
-                    </div>
-                    <div id="topic2" class="subtab-content">Topic 2 Content</div>
-                    <div id="topic3" class="subtab-content">Topic 3 Content</div>
-                    <div id="topic4" class="subtab-content">Topic 4 Content</div>
-                    <div id="topic5" class="subtab-content">Topic 5 Content</div>
+                    <iframe 
+                        id="orderfulDeckPDF" 
+                        src="" 
+                        width="100%" 
+                        height="700px" 
+                        style="display:none;"
+                        frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+            
+            <script>
+            function validatePDFAccess() {
+                const passwordInput = document.getElementById('orderfulDeckPassword');
+                const pdfFrame = document.getElementById('orderfulDeckPDF');
+                const errorMessage = document.getElementById('passwordError');
+                
+                const CORRECT_PASSWORD = 'OrderfulDeck2024';
+                
+                if (passwordInput.value === CORRECT_PASSWORD) {
+                    pdfFrame.src = 'https://github.com/NUbivek/NUbivek.github.io/raw/main/2024%20Orderful%20Deck.pdf';
+                    pdfFrame.style.display = 'block';
+                    document.querySelector('.password-overlay').style.display = 'none';
+                    errorMessage.textContent = '';
+                } else {
+                    errorMessage.textContent = 'Incorrect password. Please try again.';
+                    passwordInput.value = '';
+                }
+            }
+            </script>
+
+
                 </div>
         
-                <div id="memo2" class="memo-content">Memo 2 Content</div>
-                <div id="memo3" class="memo-content">Memo 3 Content</div>
+                <div id="memo2" class="memo-content">
+                    <iframe 
+                        src="https://docs.google.com/viewer?url=https://github.com/NUbivek/NUbivek.github.io/raw/main/Ethic_OnePager.pdf&embedded=true" 
+                        width="100%" 
+                        height="700px" 
+                        style="border: none;"
+                        frameborder="0"
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
-
+        </div>
         
-        <div id="sample-deals" class="tab-content">
-            <h2>Sample Deals</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <!-- Add your content here -->
-                </div>
-                <div class="card">
-                    <!-- Add your content here -->
-                </div>
+<div id="sample-deals" class="tab-content">
+    <h2>Sample Deals</h2>
+    <div class="pdf-container">
+        <div class="pdf-navigation">
+            <div class="pdf-selector">
+                <button class="pdf-tab active" onclick="switchPDF('early-stage-deals')">
+                    <span class="pdf-icon">🚀</span>
+                    <span class="pdf-title">Early Stage Deals</span>
+                </button>
+                <button class="pdf-tab" onclick="switchPDF('growth-stage-deals')">
+                    <span class="pdf-icon">📈</span>
+                    <span class="pdf-title">Growth Stage Deals</span>
+                </button>
+                <button class="pdf-tab" onclick="switchPDF('mixed-bag-deals')">
+                    <span class="pdf-icon">🔀</span>
+                    <span class="pdf-title">Mixed-bag/Random</span>
+                </button>
             </div>
+        </div>
+        <div class="pdf-viewer">
+            <iframe 
+                id="early-stage-deals" 
+                class="pdf-frame active"
+                src="https://v2-embednotion.com/15bd125b36c980fca36fdb3e01e74999" style="width: 100%; height: 500px; border: 2px solid #ccc; border-radius: 10px; padding: none;"
+                frameborder="0" 
+                width="100%" 
+                height="700px" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <iframe 
+                id="growth-stage-deals" 
+                class="pdf-frame" 
+                src="YOUR_LINKEDIN_OR_EMBED_LINK_FOR_GROWTH_STAGE_DEALS"
+                frameborder="0" 
+                width="100%" 
+                height="700px" 
+                style="display: none;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+            <iframe 
+                id="mixed-bag-deals" 
+                class="pdf-frame" 
+                src="YOUR_LINKEDIN_OR_EMBED_LINK_FOR_MIXED_BAG_DEALS"
+                frameborder="0" 
+                width="100%" 
+                height="700px" 
+                style="display: none;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
         </div>
     </div>
+</div>
 
-   <script>
-        // Enhanced Tab Switching
-        function openTab(tabName) {
-            const tabContents = document.getElementsByClassName("tab-content");
-            const tabButtons = document.getElementsByClassName("tab-button");
-            
-            Array.from(tabContents).forEach(tab => {
-                tab.classList.remove("active");
-                tab.style.opacity = 0;
-            });
-            
-            Array.from(tabButtons).forEach(button => {
-                button.classList.remove("active");
-            });
-            
-            const selectedTab = document.getElementById(tabName);
-            selectedTab.classList.add("active");
-            
-            setTimeout(() => {
-                selectedTab.style.opacity = 1;
-            }, 50);
-            
-            event.currentTarget.classList.add("active");
-        }
 
-        function switchPDF(pdfId) {
-            // Hide all PDFs
-            document.querySelectorAll('.pdf-frame').forEach(frame => {
-                frame.style.display = 'none';
-                frame.classList.remove('active');
-            });
-            
-            // Show selected PDF
-            const selectedPDF = document.getElementById(pdfId);
-            if (selectedPDF) {
-                selectedPDF.style.display = 'block';
-                selectedPDF.classList.add('active');
-            }
-            
-            // Update tab styling
-            document.querySelectorAll('.pdf-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-        }
-        
-      function initTheme() {
-    const themeToggle = document.getElementById('themeToggle');
+      <script>
+          // Tab Switching Functions
+          function openTab(tabName) {
+              const tabContents = document.getElementsByClassName("tab-content");
+              const tabButtons = document.getElementsByClassName("tab-button");
+              
+              Array.from(tabContents).forEach(tab => {
+                  tab.classList.remove("active");
+                  tab.style.opacity = 0;
+              });
+              
+              Array.from(tabButtons).forEach(button => {
+                  button.classList.remove("active");
+              });
+              
+              const selectedTab = document.getElementById(tabName);
+              selectedTab.classList.add("active");
+              
+              setTimeout(() => {
+                  selectedTab.style.opacity = 1;
+              }, 50);
+              
+              event.currentTarget.classList.add("active");
+          }
+      
+          function switchPDF(pdfId) {
+              document.querySelectorAll('.pdf-frame').forEach(frame => {
+                  frame.style.display = 'none';
+                  frame.classList.remove('active');
+              });
+              
+              const selectedPDF = document.getElementById(pdfId);
+              if (selectedPDF) {
+                  selectedPDF.style.display = 'block';
+                  selectedPDF.classList.add('active');
+              }
+              
+              document.querySelectorAll('.pdf-tab').forEach(tab => {
+                  tab.classList.remove('active');
+              });
+              event.currentTarget.classList.add('active');
+          }
+      
+          function switchMemo(memoId) {
+              document.querySelectorAll('.memo-content').forEach(content => {
+                  content.classList.remove('active');
+              });
+              
+              document.querySelectorAll('.pdf-tab').forEach(tab => {
+                  tab.classList.remove('active');
+              });
+              
+              document.getElementById(memoId).classList.add('active');
+              event.currentTarget.classList.add('active');
+          }
+      
+          function switchSubtab(subtabId) {
+              document.querySelectorAll('.subtab-content').forEach(content => {
+                  content.classList.remove('active');
+              });
+              
+              document.querySelectorAll('.subtab-button').forEach(button => {
+                  button.classList.remove('active');
+              });
+              
+              document.getElementById(subtabId).classList.add('active');
+              event.currentTarget.classList.add('active');
+              
+              if (subtabId === 'dashboard') {
+                  initDashboard();
+              }
+          }
+      
+          // Theme Functions
+          function initTheme() {
+              const themeToggle = document.getElementById('themeToggle');
+              
+              if (localStorage.getItem('darkMode') === 'true') {
+                  document.body.classList.add('dark-theme');
+                  themeToggle.classList.add('dark');
+              } else {
+                  document.body.classList.remove('dark-theme');
+                  themeToggle.classList.remove('dark');
+                  localStorage.setItem('darkMode', 'false');
+              }
+              
+              themeToggle.addEventListener('click', () => {
+                  document.body.classList.toggle('dark-theme');
+                  themeToggle.classList.toggle('dark');
+                  localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
+              });
+          }
+      
+          // Animation Functions
+          function checkScroll() {
+              const elements = document.querySelectorAll('.experience-box, .card');
+              const windowHeight = window.innerHeight;
+              
+              elements.forEach(element => {
+                  const elementTop = element.getBoundingClientRect().top;
+                  if (elementTop < windowHeight * 0.85) {
+                      element.classList.add('visible');
+                  }
+              });
+          }
+      
+          function animateValue(obj, start, end, duration) {
+              let startTimestamp = null;
+              const step = (timestamp) => {
+                  if (!startTimestamp) startTimestamp = timestamp;
+                  const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                  obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                  if (progress < 1) {
+                      window.requestAnimationFrame(step);
+                  }
+              };
+              window.requestAnimationFrame(step);
+          }
+      
+          // Initialization
+          document.addEventListener('DOMContentLoaded', function() {
+              initTheme();
+              checkScroll();
+              
+              document.querySelectorAll('.stat-number').forEach(stat => {
+                  const value = parseInt(stat.innerText.replace(/[^0-9.-]+/g,""));
+                  if (!isNaN(value)) {
+                      animateValue(stat, 0, value, 2000);
+                  }
+              });
+      
+              document.querySelectorAll('.card, .experience-box').forEach(element => {
+                  element.style.opacity = 0;
+                  element.style.transform = 'translateY(20px)';
+                  setTimeout(() => {
+                      element.style.opacity = 1;
+                      element.style.transform = 'translateY(0)';
+                  }, 300);
+              });
+          });
+      
+          let ticking = false;
+          window.addEventListener('scroll', () => {
+              if (!ticking) {
+                  window.requestAnimationFrame(() => {
+                      checkScroll();
+                      ticking = false;
+                  });
+                  ticking = true;
+              }
+          });
+      </script>
 
-        function switchMemo(memoId) {
-            document.querySelectorAll('.memo-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.pdf-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            document.getElementById(memoId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-        
-        function switchSubtab(subtabId) {
-            document.querySelectorAll('.subtab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.subtab-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            document.getElementById(subtabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-        
-        // Initialize the dashboard when the tab is opened
-        document.addEventListener('DOMContentLoaded', function() {
-            const dashboardContainer = document.getElementById('investor-dashboard');
-            if (dashboardContainer) {
-                // Initialize your React dashboard component here
-                ReactDOM.render(
-                    React.createElement(InvestorDashboard),
-                    dashboardContainer
-                );
-            }
-        });
 
-          
-    // Remove system preference check and set light mode as default
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-theme');
-        themeToggle.classList.add('dark');
-    } else {
-        // Explicitly set light mode
-        document.body.classList.remove('dark-theme');
-        themeToggle.classList.remove('dark');
-        localStorage.setItem('darkMode', 'false');
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        themeToggle.classList.toggle('dark');
-        localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
-    });
-          
-}
-document.addEventListener('DOMContentLoaded', function() {
-    // Existing animation code...
-    
-    // Add dark theme initialization
-    initTheme();
-});
-
-       
-        // Scroll Animation
-        function checkScroll() {
-            const elements = document.querySelectorAll('.experience-box, .card');
-            const windowHeight = window.innerHeight;
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < windowHeight * 0.85) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Number Counter Animation
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            checkScroll();
-            
-            // Animate numbers
-            document.querySelectorAll('.stat-number').forEach(stat => {
-                const value = parseInt(stat.innerText.replace(/[^0-9.-]+/g,""));
-                if (!isNaN(value)) {
-                    animateValue(stat, 0, value, 2000);
-                }
-            });
-
-            // Initial animations
-            document.querySelectorAll('.card, .experience-box').forEach(element => {
-                element.style.opacity = 0;
-                element.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
-                }, 300);
-            });
-        });
-
-        // Optimized scroll listener
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    checkScroll();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-    </script>
-    <script>
-    // Enhanced Tab Switching
-    function openTab(tabName) {
-        const tabContents = document.getElementsByClassName("tab-content");
-        const tabButtons = document.getElementsByClassName("tab-button");
-        
-        Array.from(tabContents).forEach(tab => {
-            tab.classList.remove("active");
-        });
-        
-        Array.from(tabButtons).forEach(button => {
-            button.classList.remove("active");
-        });
-        
-        document.getElementById(tabName).classList.add("active");
-        event.currentTarget.classList.add("active");
-    }
-
-    // Number Counter Animation with Currency Formatting
-    function animateValue(obj, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            
-            // Extract unit (B or T) from the original text
-            const originalText = obj.getAttribute('data-value');
-            const unit = originalText.slice(-1);
-            
-            // Format number with $ sign, 2 decimal places, and unit
-            const currentValue = (progress * (end - start) + start).toFixed(2);
-            obj.innerHTML = `$${currentValue}${unit}`;
-            
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-
-    // Initialize animations
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.stat-number').forEach(stat => {
-            // Store original value as data attribute
-            const originalText = stat.innerText;
-            stat.setAttribute('data-value', originalText);
-            
-            // Extract just the number
-            const value = parseFloat(originalText.replace(/[^0-9.-]+/g,""));
-            if (!isNaN(value)) {
-                animateValue(stat, 0, value, 2000);
-            }
-        });
-    });
-</script>
 </body>
 </html>
